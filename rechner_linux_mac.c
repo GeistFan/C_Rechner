@@ -28,18 +28,21 @@ void integerCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %d\n", valueA + valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
         main();
     }else if(function == 2){
         printf("Das Ergebnis ist: %d\n", valueA - valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
         main();
     }else if(function == 3){
         printf("Das Ergebnis ist: %d\n", valueA * valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
@@ -47,6 +50,7 @@ void integerCalculator(){
     }else if(function == 4){
         printf("Das Ergebnis ist: %d\n", valueA / valueB);
         printf("Und der Rest beträgt: %d\n", valueA % valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
@@ -76,24 +80,28 @@ void floatingPointCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %.2f\n", valueA + valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
         main();
     }else if(function == 2){
         printf("Das Ergebnis ist: %.2f\n", valueA - valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
         main();
     }else if(function == 3){
         printf("Das Ergebnis ist: %.2f\n", valueA * valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
         main();
     }else if(function == 4){
         printf("Das Ergebnis ist: %.2f\n", valueA / valueB);
+        printf("\nPress [ENTER] to continue!");
         getchar();
         while(getchar()!='\n');
         system("clear");
@@ -115,6 +123,7 @@ void kreisBerechnen(){
     printf("\nRadius: %.2f\n", radius);
     printf("Umfang: %.2f\n", 2 * radius * pi);
     printf("Fl%cche: %.2f\n", ae, radius * radius * pi);
+    printf("\nPress [ENTER] to continue!");
     getchar();
     while(getchar()!='\n');
     system("clear");
@@ -135,10 +144,61 @@ void formelBerechnung(){
     printf("Zylindermantel: %.2f\n", 2 * pi * radius * height);
     printf("Spherenfl%cche: %.2f\n", ae, 4 * pi * radius * radius);
     printf("Spherenvolumen: %.2f\n", 4/3 * pi * radius * radius * radius);
+    printf("\nPress [ENTER] to continue!");
     getchar();
     while(getchar()!='\n');
     system("clear");
     
+}
+
+void digitSumCalc(){
+    int number = 0;
+    int remaining = 0;
+    int digitSum = 0;
+
+    printf("Gib eine beliebige Zahl ein!\n");
+    scanf("%d", &number);
+
+    while(number){
+        remaining = number % 10;
+        digitSum = digitSum + remaining;
+        number = number / 10;
+    }
+
+    printf("\nDie Ziffernsumme ist: %d.\n", digitSum);
+    printf("\nPress [ENTER] to continue!");
+    getchar();
+    while(getchar() !='\n');
+    system("clear");
+}
+
+void towerCalculations(){
+    int value = 0;
+    int i = 0;
+    int cache = 1;
+
+    printf("Startzahl:\n");
+    scanf("%d", &value);
+
+    for(i = 0; i < 18; i++){
+        if(i == 9){
+            cache = 1;
+        }
+        if(i < 9){
+            printf("%10d * %d = %-10d\n", value, cache, value * cache);
+            value *= cache;
+        }
+
+        if(i >= 9){
+            printf("%10d / %d = %-10d\n", value, cache, value / cache);
+            value /= cache;
+        }
+        cache++;
+    }
+    printf("\nPress [ENTER] to continue!");
+    getchar();
+    while(getchar() !='\n');
+    system("clear");
 }
 
 int main(){
@@ -152,7 +212,7 @@ int main(){
         printf("$$    $$  $$        $$        $$    $$  $$    $$  $$        $$      \n");
         printf("$$    $$   $$$$$$$   $$$$$$$  $$    $$  $$    $$   $$$$$$$  $$      \n");
         printf("                                                                    \n");
-        printf("1. Ganzzahl Taschenrechner\n2. Gleit-Komma Taschenrechner\n3. Kreis berechnen\n4. Formelberechnung\n5. Ausgang\n");
+        printf("1. Ganzzahl Taschenrechner\n2. Gleit-Komma Taschenrechner\n3. Kreis berechnen\n4. Formelberechnung\n5. Ziffernsumme\n6. Turmrechnen\n7. Ausgang\n");
         scanf("%d", &selection);
         
         if(selection == 1){
@@ -169,6 +229,12 @@ int main(){
             formelBerechnung();
         }else if(selection == 5){
             system("clear");
+            digitSumCalc();
+        }else if(selection == 6){
+            system("clear");
+            towerCalculations();
+        }else if(selection == 7){
+            system("clear");
             printf("Auf wieder sehen!\n");
             getchar();
             while(getchar()!='\n');
@@ -182,3 +248,4 @@ int main(){
         }
     }
 }
+
