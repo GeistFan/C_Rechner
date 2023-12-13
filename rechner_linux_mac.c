@@ -316,7 +316,6 @@ int main(){
             printf("\nDas ist keine Option!\n");
             getch();
             system("clear");
-            main();
         }
     }
 }
