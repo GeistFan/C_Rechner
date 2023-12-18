@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <time.h>
 
 #define oe (unsigned char)148
 #define ae (unsigned char)132
@@ -30,28 +31,27 @@ void integerCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %d\n", valueA + valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 2){
         printf("Das Ergebnis ist: %d\n", valueA - valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 3){
         printf("Das Ergebnis ist: %d\n", valueA * valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 4){
         printf("Das Ergebnis ist: %d\n", valueA / valueB);
         printf("Und der Rest beträgt: %d\n", valueA % valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 5){
         system("cls");
-        main();
     }else{
         printf("Das ist keine Option!");
         integerCalculator();
@@ -74,27 +74,26 @@ void floatingPointCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %.2f\n", valueA + valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 2){
         printf("Das Ergebnis ist: %.2f\n", valueA - valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 3){
         printf("Das Ergebnis ist: %.2f\n", valueA * valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 4){
         printf("Das Ergebnis ist: %.2f\n", valueA / valueB);
+        printf("\nPress [ENTER] to continue!");
         getch();
         system("cls");
-        main();
     }else if(function == 5){
         system("cls");
-        main();
     }else{
         printf("Das ist keine Option!");
         floatingPointCalculator();
@@ -109,6 +108,7 @@ void kreisBerechnen(){
     printf("\nRadius: %.2f\n", radius);
     printf("Umfang: %.2f\n", 2 * radius * pi);
     printf("Fl%cche: %.2f\n", ae, radius * radius * pi);
+    printf("\nPress [ENTER] to continue!");
     getch();
     system("cls");
 }
@@ -128,6 +128,7 @@ void formelBerechnung(){
     printf("Zylindermantel: %.2f\n", 2 * pi * radius * height);
     printf("Spherenfl%cche: %.2f\n", ae, 4 * pi * radius * radius);
     printf("Spherenvolumen: %.2f\n", 4/3 * pi * radius * radius * radius);
+    printf("\nPress [ENTER] to continue!");
     getch();
     system("cls");
     
@@ -166,6 +167,136 @@ void basicFunction(){
     }
 }
 
+void digitSumCalc(){
+    int number = 0;
+    int remaining = 0;
+    int digitSum = 0;
+
+    printf("Gib eine beliebige Zahl ein!\n");
+    scanf("%d", &number);
+
+    while(number){
+        remaining = number % 10;
+        digitSum = digitSum + remaining;
+        number = number / 10;
+    }
+
+    printf("\nDie Ziffernsumme ist: %d.\n", digitSum);
+    printf("\nPress [ENTER] to continue!");
+    getch();
+    system("cls");
+}
+
+void towerCalculations(){
+    int value = 0;
+    int i = 0;
+    int cache = 1;
+
+    printf("Startzahl:\n");
+    scanf("%d", &value);
+
+    for(i = 0; i < 18; i++){
+        if(i == 9){
+            cache = 1;
+        }
+        if(i < 9){
+            printf("%10d * %d = %-10d\n", value, cache, value * cache);
+            value *= cache;
+        }
+
+        if(i >= 9){
+            printf("%10d / %d = %-10d\n", value, cache, value / cache);
+            value /= cache;
+        }
+        cache++;
+    }
+    printf("\nPress [ENTER] to continue!");
+    getch();
+    system("cls");
+}
+
+void factorialCalc(){
+    int input = 0;
+    int product = 1;
+    int i = 0;
+
+    printf("Eingabe Zahl:\n");
+    scanf("%d", &input);
+
+    for(i = 1; i <= input; i++){
+        product *= i;
+    }
+    printf("\nL%csung: %d! ergibt %d.\n", oe, input, product);
+    printf("\nPress [ENTER] to continue!");
+    getch();
+    system("cls");
+}
+
+void guessGame(){
+    srand(time(NULL));
+
+    int i = 0;
+    int value = 0;
+    int counter = 0;
+    int randnum[5] = {0};
+
+    randnum[0] = 0;
+    randnum[1] = 15;
+    randnum[2] = randnum[1] - randnum[0];
+    randnum[3] = rand();
+    randnum[4] = randnum[3] % randnum[2] + 1;
+
+    printf("Errate eine Zahl, die im Bereich 1 bis 15 liegt (5 Versuche).\n");
+    for(i = 1; i <= 5; i++){
+        counter++;
+
+        printf("Deine Eingabe:\n");
+        scanf("%d", &value);
+        if(randnum[4] == value){
+            printf("Gratulation. Du hast die Zahl mit %d Versuch(en) erraten.\n", counter);
+            i = 8;
+        }else if(randnum[4] < value){
+            printf("Hinweis: Die Zahl ist kleiner.\n");
+        }else if(randnum[4] > value){
+            printf("Hinweis: Die Zahl ist groesser.\n");
+        }
+    }
+    
+    printf("Die korrekte Zahl ist: %d.\n", randnum[4]);
+    printf("\nPress [ENTER] to continue!");
+    getch();
+    system("cls");
+}
+
+void binaryCalc(){
+    int valueBinary = 0;
+    int cacheBinary = 0;
+    int loopBinary = 0;
+    int bin[50] = {0};
+
+    printf("Gib eine Zahl ein\n");
+    scanf("%d", &valueBinary);
+    cacheBinary = valueBinary;
+
+    while(valueBinary != 0){
+        bin[loopBinary] = valueBinary % 2;
+        valueBinary /= 2;
+        loopBinary++;
+    }
+
+    --loopBinary;
+    printf("Binaer ist %d: Binary Number: ", cacheBinary);
+    while(loopBinary != -1){
+        printf("%d", bin[loopBinary]);
+        --loopBinary;
+    }
+    printf("\n");
+    printf("\nPress [ENTER] to continue!");
+    getch();
+    system("cls");
+}
+
+
 int main(){
     while(loop < 1){
         int selection;
@@ -177,7 +308,8 @@ int main(){
         printf("$$    $$  $$        $$        $$    $$  $$    $$  $$        $$      \n");
         printf("$$    $$   $$$$$$$   $$$$$$$  $$    $$  $$    $$   $$$$$$$  $$      \n");
         printf("                                                                    \n");
-        printf("1. Ganzzahl Taschenrechner\n2. Gleit-Komma Taschenrechner\n3. Kreis berechnen\n4. Formelberechnung\n5. Ausgang\n");
+        printf("1. Ganzzahl Taschenrechner\n2. Gleit-Komma Taschenrechner\n3. Kreis berechnen\n4. Formelberechnung\n5. Ziffernsumme\n");
+        printf("6. Turmrechnen\n7. Faktorielles Rechnen\n8. Zahlenraten\n9. Binary Rechnen\n10. Ausgang\n");
         scanf("%d", &selection);
         
         if(selection == 1){
@@ -194,6 +326,21 @@ int main(){
             formelBerechnung();
         }else if(selection == 5){
             system("cls");
+            digitSumCalc();
+        }else if(selection == 6){
+            system("cls");
+            towerCalculations();
+        }else if(selection == 7){
+            system("cls");
+            factorialCalc();
+        }else if(selection == 8){
+            system("cls");
+            guessGame();
+        }else if(selection == 9){
+            system("cls");
+            binaryCalc();
+        }else if(selection == 10){
+            system("cls");
             printf("Auf wieder sehen!");
             getch();
             return 0;
@@ -206,7 +353,6 @@ int main(){
             printf("\nDas ist keine Option!");
             getch();
             system("cls");
-            main();
         }
     }
 }
