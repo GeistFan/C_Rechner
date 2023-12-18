@@ -12,6 +12,7 @@ int loop;
 float pi = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912;
 
 void getch(){
+    printf("\nPress [ENTER] to continue!");
     getchar();
     while(getchar() !='\n');
 }
@@ -34,23 +35,19 @@ void integerCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %d\n", valueA + valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 2){
         printf("Das Ergebnis ist: %d\n", valueA - valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 3){
         printf("Das Ergebnis ist: %d\n", valueA * valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 4){
         printf("Das Ergebnis ist: %d\n", valueA / valueB);
         printf("Und der Rest beträgt: %d\n", valueA % valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 5){
@@ -77,22 +74,18 @@ void floatingPointCalculator(){
     
     if(function == 1){
         printf("Das Ergebnis ist: %.2f\n", valueA + valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 2){
         printf("Das Ergebnis ist: %.2f\n", valueA - valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 3){
         printf("Das Ergebnis ist: %.2f\n", valueA * valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 4){
         printf("Das Ergebnis ist: %.2f\n", valueA / valueB);
-        printf("\nPress [ENTER] to continue!");
         getch();
         system("clear");
     }else if(function == 5){
@@ -111,7 +104,6 @@ void kreisBerechnen(){
     printf("\nRadius: %.2f\n", radius);
     printf("Umfang: %.2f\n", 2 * radius * pi);
     printf("Fl%cche: %.2f\n", ae, radius * radius * pi);
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -131,7 +123,6 @@ void formelBerechnung(){
     printf("Zylindermantel: %.2f\n", 2 * pi * radius * height);
     printf("Spherenfl%cche: %.2f\n", ae, 4 * pi * radius * radius);
     printf("Spherenvolumen: %.2f\n", 4/3 * pi * radius * radius * radius);
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -151,7 +142,6 @@ void digitSumCalc(){
     }
 
     printf("\nDie Ziffernsumme ist: %d.\n", digitSum);
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -179,7 +169,6 @@ void towerCalculations(){
         }
         cache++;
     }
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -196,7 +185,6 @@ void factorialCalc(){
         product *= i;
     }
     printf("\nL%csung: %d! ergibt %d.\n", oe, input, product);
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -232,7 +220,6 @@ void guessGame(){
     }
     
     printf("Die korrekte Zahl ist: %d.\n", randnum[4]);
-    printf("\nPress [ENTER] to continue!");
     getch();
     system("clear");
 }
@@ -259,8 +246,7 @@ void binaryCalc(){
         printf("%d", bin[loopBinary]);
         --loopBinary;
     }
-    printf("\n");
-    printf("\nPress [ENTER] to continue!");
+    printf("\n\n");
     getch();
     system("clear");
 }
